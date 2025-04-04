@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyTitle>BehaviorNets.Parser</AssemblyTitle>
+        <Description>Syntax parser for Behavior Nets.</Description>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Antlr4 Include="BehaviorNet.g4">
+            <Listener>true</Listener>
+            <Visitor>true</Visitor>
+            <Package>BehaviorNets.Parser.Internal</Package>
+            <Error>true</Error>
+        </Antlr4>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BehaviorNets.Core\BehaviorNets.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Antlr4.Runtime.Standard" Version="4.13.1" />
+      <PackageReference Include="Antlr4BuildTasks" Version="12.10.0" PrivateAssets="all" IncludeAssets="build" />
+    </ItemGroup>
+
+
+</Project>

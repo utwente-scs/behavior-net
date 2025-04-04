@@ -1,0 +1,7 @@
+<Project>
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.1;net6.0;net8.0</TargetFrameworks>
+        <LangVersion>12</LangVersion>
+        <ArtifactsPath>$(MSBuildThisFileDirectory)..\..\artifacts\lib</ArtifactsPath>
+    </PropertyGroup>
+</Project>

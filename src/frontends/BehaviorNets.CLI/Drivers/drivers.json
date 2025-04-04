@@ -1,0 +1,9 @@
+{
+  "drivers": [
+    {
+      "name": "drakvuf",
+      "path": "BehaviorNets.Drivers.Drakvuf.dll",
+      "type": "BehaviorNets.Drivers.Drakvuf.DrakvufExecutionDriver"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+<Project>
+
+    <PropertyGroup>
+        <Copyright>2023-2025 Jerre Starink</Copyright>
+        <Version>1.2.6</Version>
+        <PackageLicense>https://github.com/utwente-scs/behavior-nets/LICENSE.md</PackageLicense>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+        <Deterministic>true</Deterministic>
+        <UseArtifactsOutput>true</UseArtifactsOutput>
+        <LangVersion>12</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    </PropertyGroup>
+
+</Project>
