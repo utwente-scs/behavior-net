@@ -9,28 +9,55 @@ They are a derivative of Petri nets that are specifically designed to recognize 
 </div>
 
 Behavior Nets are easy to create yourself, thanks to its DSL featuring pattern matching syntax and DOT-like notation.
-
+Check out the quick starters guides ([DSL](#quick-starters-guide-dsl), [C#](#quick-starters-guide-c), [CLI](#quick-starters-guide-cli)).
 
 
 ## Binaries
 
 Stable Builds:
-- [GitHub Releases](https://github.com/utwente-scs/behavior-nets/releases)
+- [GitHub Releases](https://github.com/utwente-scs/behavior-net/releases)
 - NuGet Feed (coming soon!)
+
+
+## Citation
+
+If you use Behavior Nets in your research, please consider citing one of our papers:
+
+-   [TOPS '25 journal paper](https://doi.org/10.1145/3729228):
+    ```bibtex
+    @article{starink2025:behavior-nets,
+        author = {Starink, Jerre and Huisman, Marieke and Peter, Andreas and Continella, Andrea},
+        title = {Behavior Nets: Context-Aware Behavior Modeling for Code Injection-Based Windows Malware},
+        journal = {ACM Transactions on Privacy and Security (TOPS)},
+        year = {2025},
+        doi = {10.1145/3729228},
+    }
+    ```
+
+-   Original [SecureComm '23 conference paper](https://research.utwente.nl/files/351183631/starink-codeinjection-2023.pdf) and accompanied [repository with evaluation data](https://github.com/utwente-scs/code-injection-malware):
+    ```bibtex
+    @inproceedings{starink2023:code-injection,
+        title={Understanding and Measuring Inter-Process Code Injection in Windows Malware},
+        author={Starink, Jerre and Huisman, Marieke and Peter, Andreas and Continella, Andrea},
+        booktitle = {Proceedings of the International Conference on Security and Privacy in Communication Systems (SecureComm)},
+        year = {2023}
+    }
+    ```
 
 ## Repository Organization
 
 The repository is structured in the following manner:
-- [x] `src/lib`: Reusable .NET libraries implementing Behavior Net modeling language and parsers.
-    - [x] `BehaviorNets.Core`: Reusable models and evaluators for Behavior Nets.
-    - [x] `BehaviorNets.Parser`: The library for parsing the Behavior Net DSL.
-- [x] `src/frontends`: Reference user-interfaces for compiling and using Behavior Nets.
-    - [x] `BehaviorNets.CLI`: The commandline interface for running samples and analyzing their behavior.
-    - [x] `BehaviorNets.ZipPackager`: A tool to package software and all its dependencies into a single self-extracting executable (useful for sandboxes that only allow one file to be uploaded at a time).
-    - [x] `BehaviorNets.ZipRunner`: The source code for the self-extracting executable.
-- [x] `src/drivers`: Reference backend drivers that transform logs from sandboxes/tracers into something that a Behavior Net understands.
-    - [x] `BehaviorNets.Drivers.Drakvuf`: Driver that implements Behavior Nets on top of the DRAKVUF sandbox.
-- [x] `test/`: Unit tests
+- `src/lib`: Reusable core libraries.
+    - `BehaviorNets.Core`: Models and evaluators for Behavior Nets.
+    - `BehaviorNets.Parser`: Auxiliary library for parsing the Behavior Net DSL.
+- `src/frontends`: Reference user-interfaces.
+    - `BehaviorNets.CLI`: Main commandline interface for running and analyzing samples.
+    - `BehaviorNets.ZipPackager`: Auxiliary tool to package software and its dependencies into a single self-extracting executable.
+    - `BehaviorNets.ZipRunner`: The source code for the self-extracting executable.
+- `src/drivers`: Reference backend drivers interpreting logs from sandboxes/tracers/auditers.
+    - `BehaviorNets.Drivers.Drakvuf`: Driver for the [DRAKVUF sandbox](https://github.com/CERT-Polska/drakvuf-sandbox).
+- `test/`: Unit tests
+
 
 ## Compiling
 
@@ -377,20 +404,3 @@ The configuration above allows for `--driver mydriver` to be used in the CLI.
 ```sh
 $ ./BehaviorNet.CLI analyze path/to/sample.exe --driver mydriver
 ```
-
-
-## Citation
-
-If you use Behavior Nets in your research, consider citing one of our papers:
-
--   Behavior Nets Formalization Paper (under submission).
-
--   Original [SecureComm '23 conference paper](https://research.utwente.nl/files/351183631/starink-codeinjection-2023.pdf) and accompanied [repository with evaluation data](https://github.com/utwente-scs/code-injection-malware).
-    ```bibtex
-    @inproceedings{starink2023:code-injection,
-        title={Understanding and Measuring Inter-Process Code Injection in Windows Malware},
-        author={Starink, Jerre and Huisman, Marieke and Peter, Andreas and Continella, Andrea},
-        booktitle = {Proceedings of the International Conference on Security and Privacy in Communication Systems (SecureComm)},
-        year = {2023}
-    }
-    ```
